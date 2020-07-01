@@ -1,6 +1,9 @@
 const { connect } = require('./client');
+const { setupInput } = require('./input');
+
 console.log('Connecting ...');
-connect();
+
+setupInput(connect());
 
 // step 1: added this:
 // conn.on('data', (data) => {
@@ -40,4 +43,4 @@ module.exports = { connect };*/
   });
 
   conn.setEncoding('utf8');*/
-  
+// step 4: add function setUpInput

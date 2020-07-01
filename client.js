@@ -1,24 +1,22 @@
 const net = require('net');
+const {IP, PORT, NAME} = require('./constants');
 
-/**
- * Establishes connection with the game server
- */
 const connect = function() {
   const conn = net.createConnection({
-    host: '135.23.222.148',
-    port: 50541
+    host: IP,
+    port: PORT
   });
 
   conn.on('connect', (connect) => {
-    console.log('I gat dat from serva >>');
+    console.log('Snake Game Server says >>');
   });
 
   conn.on('connect', () => {
-    conn.write('Name: NAT');
+    conn.write(`Name: ${NAME}`);
   });
 
   conn.on('data', (data) => {
-    console.log('You are done');
+    console.log('You are done!!!');
   });
 
   conn.setEncoding('utf8');
