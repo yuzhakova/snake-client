@@ -8,12 +8,20 @@ const connect = function() {
     host: '135.23.222.148',
     port: 50541
   });
-  // interpret incoming data as text
-  conn.setEncoding('utf8');
+
+  conn.on('connect', (connect) => {
+    console.log('I gat dat from serva >>');
+  });
+
+  conn.on('connect', () => {
+    conn.write('Name: NAT');
+  });
 
   conn.on('data', (data) => {
-    console.log('I gat dat from serva >>', data);
+    console.log('You are done');
   });
+
+  conn.setEncoding('utf8');
 
   return conn;
 };
